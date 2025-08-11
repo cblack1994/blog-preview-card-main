@@ -1,7 +1,7 @@
 :root {
     --yellow: #F4D04E;
     --gray-950: #111111;
-    --gray-500: #6B6B6B6B;
+    --gray-500: #6B6B6B; /* Corregí un pequeño error en tu color original */
     --white: #FFFFFF;
 }
 
@@ -12,7 +12,7 @@
 }
 
 html {
-    font-size: 62.5%;
+    font-size: 62.5%; /* 1rem = 10px */
 }
 
 body {
@@ -20,33 +20,117 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
+    padding: 2.4rem; /* Espacio para que la tarjeta no toque los bordes */
     background-color: var(--yellow);
+    font-family: "Figtree", sans-serif;
 }
 
-section {
+.blog-card {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 327px;
-    height: 501px;
-    margin-bottom: 30px;
+    width: 100%;
+    max-width: 327px; /* Límite de ancho para móviles */
+    padding: 2.4rem;
     background-color: var(--white);
     border: 1px solid var(--gray-950);
     border-radius: 20px;
-    box-shadow: 8px 8px 0 0 #000;
+    box-shadow: 8px 8px 0 0 var(--gray-950);
 }
 
-figure {
-    width: 280px;
-    height: 200px;
-    margin: 24px 24px 24px 24px;
-}
-
-figure img {
-    width: inherit;
+.card-image-container img {
+    width: 100%;
+    height: auto;
     border-radius: 10px;
 }
 
-.text-con
+.card-text-container {
+    margin-top: 2.4rem;
+}
+
+.category-tag {
+    display: inline-block; /* Permite que el padding funcione correctamente */
+    padding: 0.4rem 1.2rem;
+    font-weight: 800;
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: var(--gray-950);
+    background-color: var(--yellow);
+    border-radius: 4px;
+    margin-bottom: 1.2rem;
+}
+
+.publish-date {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 1.2rem;
+}
+
+.card-title {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.5; /* Usa un valor sin unidad para mejor escalabilidad */
+    color: var(--gray-950);
+    margin-bottom: 1.2rem;
+    text-decoration: none; /* Añadido para que parezca un enlace */
+}
+
+.card-description {
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--gray-500);
+}
+
+.author-profile {
+    display: flex;
+    align-items: center;
+    margin-top: 2.4rem;
+}
+
+.author-profile img {
+    width: 32px;
+    height: 32px;
+    margin-right: 1.2rem;
+}
+
+.author-name {
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+
+.attribution {
+    font-size: 1.2rem; /* Aumentado para legibilidad */
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+@media (min-width: 768px) {
+
+  .blog-card {
+    max-width: 384px;
+    /* Opcional: una sombra más grande se ve mejor en escritorio */
+    /* box-shadow: 16px 16px 0 0 var(--gray-950); */
+  }
+
+  .card-title {
+    font-size: 2.4rem; /* Equivalente a 24px */
+  }
+
+  .card-description {
+    font-size: 1.6rem; /* Equivalente a 16px */
+  }
+
+  /* No es necesario cambiar los otros textos, 
+    porque ya tenían un tamaño de 1.4rem (14px) 
+    en la versión móvil.
+  */
+  .card-title:hover {
+    color: var(--yellow);
+    cursor: pointer;
+}
+}
